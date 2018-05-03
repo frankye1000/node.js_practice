@@ -189,15 +189,80 @@
 
 ////////////////////////////////////////////////////////////
 //函數傳遞是如何讓HTTP服務器工作的
-var http = require("http");
+//var http = require("http");
+//
+//function onRequest(request, response) {
+//  response.writeHead(200, {"Content-Type": "text/plain"});
+//  response.write("Hello World");
+//  response.end();
+//}
+//
+//http.createServer(onRequest).listen(7777);
 
-function onRequest(request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello World");
-  response.end();
-}
+/////////////////////////////////////////////////////////////
+//全局對象與全局變量
+//__filename
+//console.log( __filename );
+////__dirname
+//console.log( __dirname );
+////setTimeout(cb, ms)
+//function printHello(){
+//   console.log( "Hello, World!");
+//}
+//// 兩秒後執行以上函數
+//setTimeout(printHello, 2000);
+////setInterval(cb, ms)
+//function printHello(){
+//   console.log( "Hello, World!");
+//}
+//// 每兩秒重複執行以上函數
+//setInterval(printHello, 2000);
+////console
+//console.log('Hello world'); 
+//console.log('byvoid%diovyb'); 
+//console.log('byvoid%diovyb', 1991); 
+///////////////////////////////////////////////////////////////////
+//process
+//process.on('exit', function(code) {
+//
+//  // 以下代碼永遠不會執行
+//  setTimeout(function() {console.log("該代碼不會執行");}, 0);
+//  
+//  console.log('退出碼為:', code);
+//});
+//console.log("程序執行結束");
+/////////////////////////////////////////////////////////////////
+//util.inherits
+var util = require('util'); 
+function Base() { 
+    this.name = 'base'; 
+    this.base = 1991; 
+    this.sayHello = function() { 
+    console.log('Hello ' + this.name); 
+    }; 
+} 
+Base.prototype.showName = function() { 
+    console.log(this.name);
+}; 
+function Sub() { 
+    this.name = 'sub'; 
+} 
+util.inherits(Sub, Base); 
+var objBase = new Base(); 
+objBase.showName(); 
+objBase.sayHello(); 
+console.log(objBase); 
+var objSub = new Sub(); 
+objSub.showName(); 
+//objSub.sayHello(); 
+console.log(objSub); 
+/////////////////////////////////////////////////////////////////
 
-http.createServer(onRequest).listen(7777);
+
+
+
+
+
 
 
 

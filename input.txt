@@ -1,2 +1,1 @@
-frankye github ： https://github.com/frankye1000
-fork my github
+我是通過fs.writeFile 寫入文件的内容
